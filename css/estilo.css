@@ -1,0 +1,55 @@
+#map_canvas {
+  /*Esto lo seteo para que API cargue el mapa, luego resize*/
+  width: 800px;
+  height: 450px;
+}
+
+.map {
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #999999;
+  background-color: #8EC2DA;
+  border-radius: 15px;
+}
+
+.navbar-header img {
+  height: 350%;
+}
+
+body {
+  background-color: #A7D0E2;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+.container .presentation img {
+  width: 100%;
+  background-color: #8EC2DA;
+  border-radius: 15px;
+}
+
+#info, #nosotros {
+  padding-top: 70px;
+}
+
+#nosotros, #info form div label, h2, p {
+  color: grey;
+}
+
+#nosotros .col-sm-4 {
+  text-align: center;
+}
+
+#nosotros {
+  text-align: justify;
+}
+
+#nosotros a {
+  color: white;
+  text-decoration: none;
+}
+
+#nosotros a:hover {
+  text-decoration: none;
+}
