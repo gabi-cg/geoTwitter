@@ -12,12 +12,12 @@
       $this->smarty->display($nameWeb);
     }
 
-    /*
-    public function showError($nameWeb,$msg) {
-      $this->smarty->assign('msg', $msg);
+    public function showMapTwitter($nameWeb,$data) {
+      $this->smarty->assign('statuses', $data[statuses]);
       $this->smarty->display($nameWeb);
     }
 
+    /*
     public function showDance($nameWeb,$danzas) {
       $this->smarty->assign('danzas', $danzas);
       $this->smarty->display($nameWeb);

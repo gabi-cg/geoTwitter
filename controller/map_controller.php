@@ -20,8 +20,9 @@
     }
 
     public function getInfoTwitter() {
-      $this->model->getInfoTwitter($_REQUEST['lat'],$_REQUEST['lng']);
-      $this->view->showWeb("templates/map.tpl");
+      $resultado = $this->model->getInfoTwitter($_REQUEST['lat'],$_REQUEST['lng']);
+
+      $this->view->showMapTwitter("templates/map.tpl", $resultado);
     }
 /*
     public function showDance() {
