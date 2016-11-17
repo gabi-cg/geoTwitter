@@ -13,7 +13,7 @@
     }
 
     public function showMapTwitter($nameWeb,$data) {
-      $this->smarty->assign('statuses', $data[statuses]);
+      $this->smarty->assign('data', $data["statuses"]);
       $this->smarty->display($nameWeb);
     }
 

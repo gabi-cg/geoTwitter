@@ -15,7 +15,7 @@ function setearFuncionalidadNav() {
 
 function countTweets(data) {
   $("#response").html(data);
-  //alert("statuses: " + data);
+  alert("statuses: " + data);
 }
 
 function ajaxGET(link) {
@@ -24,7 +24,6 @@ function ajaxGET(link) {
       url: link,
       dataType: "HTML",
       success: function(data) {
-        JSON.stringify(data);
         countTweets(data);
       },
       error: function(jqxml, status, errorThrown) {
@@ -48,6 +47,8 @@ function cargarCiudad() { /*http://jafrancov.com/2011/06/geocode-gmaps-api-v3/*/
 }
 
 function geocodeResultados(results, status) {
+
+
   var dataBird;
   if (status == 'OK') {
     dataBird = getInfoTweetsByLatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
@@ -56,13 +57,26 @@ function geocodeResultados(results, status) {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map($("#map_canvas").get(0), mapOptions);
+
     map.fitBounds(results[0].geometry.viewport); // fitBounds acercará el mapa con el zoom adecuado de acuerdo a lo buscado
+
     // Dibujamos un marcador con la ubicación del primer resultado obtenido
     var markerOptions = { position: results[0].geometry.location }
     var marker = new google.maps.Marker(markerOptions);
     marker.setMap(map);
 
     //aca tengo que llamar a la función del tweeter !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    /*
+    var marker = new google.maps.Marker({
+    position: myLatlng,
+    title:"Hello World!"
+});
+
+// To add the marker to the map, call setMap();
+marker.setMap(map);
+
+*/
 
   } else {
     alert("Geocoding error. " + status); // en vez de un mensaje puedo mostrar el error en div del mapa
@@ -79,7 +93,7 @@ function setMarker(map) {
 function initialize() {
   var latLng = new google.maps.LatLng(55.328611,87.136944);
   var mapOptions = {
-    zoom: 8,
+    zoom: 10,
     center: latLng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };

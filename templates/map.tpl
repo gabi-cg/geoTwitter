@@ -1,5 +1,5 @@
 <div id="map_canvas">
-  {foreach from=$data}
-<p>{($data['statuses'])['text']}</p>
-{/foreach}
+  {foreach from=$data item=reg}
+    <pre>{$reg.text}</pre>
+  {/foreach}
 </div>

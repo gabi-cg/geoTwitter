@@ -23,10 +23,10 @@
       $getfield = '?q=&geocode=' . $lat . ',' . $lng . ',10km';
       $requestMethod = 'GET';
       $twitter = new TwitterAPIExchange($this->infoKeys);
-      $twitter->setGetfield($getfield)
+      $result = $twitter->setGetfield($getfield)
               ->buildOauth($url, $requestMethod)
               ->performRequest();
-      return $twitter;
+      return json_decode($result,true);
     }
 
     /*
