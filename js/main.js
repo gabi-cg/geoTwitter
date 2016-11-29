@@ -1,5 +1,6 @@
 // JavaScript Document
 "use strict";
+var resultado = []; // variable que guardará los twitters obtenidos
 
 function setearFuncionalidadNav() {
   // botones de navegación
@@ -14,8 +15,8 @@ function setearFuncionalidadNav() {
 }
 
 function countTweets(data) {
-  $("#response").html(data);
-  alert("statuses: " + data);
+  $("#response").html("Información" + data);
+  //alert("statuses: " + data);
 }
 
 function ajaxGET(link) {
@@ -46,12 +47,17 @@ function cargarCiudad() { /*http://jafrancov.com/2011/06/geocode-gmaps-api-v3/*/
   geocoder.geocode({ 'address': address}, geocodeResultados);
 }
 
+function cargarMarcador() {
+
+}
+
 function geocodeResultados(results, status) {
-
-
   var dataBird;
   if (status == 'OK') {
-    dataBird = getInfoTweetsByLatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+
+    dataBird = getInfoTweetsByLatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()); // tengo que devolver la cantidad de tweets
+    alert("dataBird: " + dataBird);
+
     var mapOptions = {
       center: results[0].geometry.location,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -60,23 +66,48 @@ function geocodeResultados(results, status) {
 
     map.fitBounds(results[0].geometry.viewport); // fitBounds acercará el mapa con el zoom adecuado de acuerdo a lo buscado
 
+    // -----------------------
+
+
+
+    var pos = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+    var marker = new google.maps.Marker({
+      position: pos,
+      map: map,
+      title:"Esto es un tweet", // acá pongo la cantidad de tweets obtenidos
+      icon: "img/markerHalf.png",
+      animation: google.maps.Animation.DROP
+    });
+
+
+    var infowindow = new google.maps.InfoWindow({
+      content: '<p>Attribution: Uluru</p>'
+    });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker)
+    });
+
     // Dibujamos un marcador con la ubicación del primer resultado obtenido
+    /*
     var markerOptions = { position: results[0].geometry.location }
     var marker = new google.maps.Marker(markerOptions);
     marker.setMap(map);
+    */
 
     //aca tengo que llamar a la función del tweeter !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     /*
-    var marker = new google.maps.Marker({
-    position: myLatlng,
-    title:"Hello World!"
-});
+    var marker = new google.maps.Marker ({
+      position: myLatlng,
+      title:"Hello World!"
+    });
+    */
 
-// To add the marker to the map, call setMap();
-marker.setMap(map);
+    // To add the marker to the map, call setMap();
+    //marker.setMap(map);
 
-*/
+
 
   } else {
     alert("Geocoding error. " + status); // en vez de un mensaje puedo mostrar el error en div del mapa

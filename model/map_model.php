@@ -20,7 +20,7 @@
 
     function getInfoTwitter($lat, $lng) {
       $url = 'https://api.twitter.com/1.1/search/tweets.json';
-      $getfield = '?q=&geocode=' . $lat . ',' . $lng . ',10km';
+      $getfield = '?q=&geocode=' . $lat . ',' . $lng . ',50km&count=100';
       $requestMethod = 'GET';
       $twitter = new TwitterAPIExchange($this->infoKeys);
       $result = $twitter->setGetfield($getfield)

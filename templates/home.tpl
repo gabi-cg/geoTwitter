@@ -16,7 +16,7 @@
           <div class="form-group">
             <h3><label class="col-lg-2 control-label">Direcci&oacute;n</label></h3>
             <div class="col-lg-8">
-              <input type="text" class="form-control" id="dir" placeholder="Ingrese direcci&oacute;n a buscar - Ej. Calle 123, Ciudad, Provincia, Pa&iacute;s"></input>
+              <input type="text" class="form-control" id="dir" placeholder="Ingrese ciudad a buscar - Ej. Ciudad, Provincia, Pa&iacute;s"></input>
             </div>
             <div class="col-lg-1">
               <button type="button" class="btn btn-info" id="dirSearch">Search</button>

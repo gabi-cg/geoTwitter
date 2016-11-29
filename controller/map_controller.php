@@ -21,8 +21,8 @@
 
     public function getInfoTwitter() {
       $resultado = $this->model->getInfoTwitter($_REQUEST['lat'],$_REQUEST['lng']);
-      return count($resultado["statuses"]);
-      //$this->view->showMapTwitter("templates/map.tpl", $resultado);
+      $this->view->showMapTwitter("templates/map.tpl", $resultado);
+      //return $resultado;
     }
 
   }
