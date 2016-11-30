@@ -29,23 +29,18 @@
       return json_decode($result,true);
     }
 
-    /*
-
-    public function copyImage($image){
-      $path = 'img/'.$image["name"];
-      copy($image["tmp_name"], $path);
-      return $path;
+    function getHashtags($data) {
+      $result = array();
+      for($i=0; $i<count($data); $i++) {
+        $aux = $data[$i]["entities"]["hashtags"];
+        foreach ($aux as $hash) {
+          if (!in_array($hash["text"],$result)) {
+            $result[] = $hash["text"];
+          }
+        }
+      }
+      return $result;
     }
-
-    function addDance($name,$info,$image) {
-          $path_image =  $this->copyImage($image);
-          $insertDance = $this->db->prepare("INSERT INTO clase(nombre,informacion,imagen) VALUES(?,?,?)");
-          $insertDance->execute(array($name,$info,$path_image));
-          $this->$db->commit();
-
-    }
-
-    */
 
   }
 ?>
