@@ -26,7 +26,7 @@
       </div>
 
       <div class="row map" id="map">
-        {include file='templates/map.tpl'}
+        <div id="map_canvas"></div>
       </div>
 
       <div class="row">
