@@ -19,10 +19,6 @@
       $this->view->showWeb("templates/home.tpl");
     }
 
-    public function showFAQ() {
-      $this->view->showWeb("templates/faq.tpl");
-    }
-
     public function getInfoTwitter() {
       $resultado = $this->model->getInfoTwitter($_REQUEST['lat'],$_REQUEST['lng']);
       $trendings = $this->model->getHashtags($resultado["statuses"]); //$resultado["statuses"] array de 100 elem devuelto por APITwitter

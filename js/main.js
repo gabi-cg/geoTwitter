@@ -42,12 +42,13 @@ function cargarCiudad() { /*http://jafrancov.com/2011/06/geocode-gmaps-api-v3/*/
   geocoder.geocode({ 'address': address}, geocodeResultados);
 }
 
+// función que setea el marcador en el lugar seleccionado (icono de twitter)
 function cargarMarcador(map, lat, lng) {
   var pos = new google.maps.LatLng(lat, lng);
   var marker = new google.maps.Marker({
     position: pos,
     map: map,
-    title:"Esto es un tweet", // acá pongo la cantidad de tweets obtenidos
+    title:"Esto es un tweet", // acá puedo poner la cantidad de tweets obtenidos
     icon: "img/markerHalf.png",
     animation: google.maps.Animation.DROP
   });
@@ -58,6 +59,7 @@ function cargarMarcador(map, lat, lng) {
   });
   $("#response").hide();
 
+  // al hacer cick que me brinde los trending topics
   marker.addListener('click', function() {
     infowindow.open(map, marker)
   });

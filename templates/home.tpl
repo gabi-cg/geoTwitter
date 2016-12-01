@@ -25,10 +25,11 @@
         </form>
       </div>
 
-      <div class="row map" id="map">
-        <div id="map_canvas"></div>
+      <div class="row map" id="map"> {* cuadro para la API de Google Maps *}
+        <div id="map_canvas"></div> {* contenedor para cargar API de Google Maps *}
       </div>
 
+      {* contenedor donde se cargan los trending topics de la API de Twitter según el lugar especificado *}
       <div class="row">
         {include file='templates/response.tpl'}
       </div>
