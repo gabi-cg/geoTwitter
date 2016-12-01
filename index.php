@@ -15,9 +15,6 @@
       case (ConfigApp::$ACTION_INFO_TWITTER):
         $mapController->getInfoTwitter();
         break;
-      case (ConfigApp::$ACTION_FAQ):
-        $mapController->showFAQ();
-        break;
       default:
         // si no hizo match, muestro home
         $mapController->showHome();
