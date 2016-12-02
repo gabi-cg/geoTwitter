@@ -36,7 +36,7 @@ function getInfoTweetsByLatLng(map, latitud, longitud) {
 /*-------- FIN get info Twitter del lugar dada longitud y latitud --------*/
 
 /*-------- set direccion y mostrar en mapa --------*/
-function cargarCiudad() { /*http://jafrancov.com/2011/06/geocode-gmaps-api-v3/*/
+function cargarCiudad() { // http://jafrancov.com/2011/06/geocode-gmaps-api-v3/
   var address = $('#dir').val(); // obtenemos direccion
   var geocoder = new google.maps.Geocoder(); // objeto geocoder
   geocoder.geocode({ 'address': address}, geocodeResultados);
@@ -75,7 +75,7 @@ function geocodeResultados(results, status) {
 
     getInfoTweetsByLatLng(map, results[0].geometry.location.lat(), results[0].geometry.location.lng()); // tengo que devolver la cantidad de tweets
 
-    map.fitBounds(results[0].geometry.viewport); // fitBounds acercará el mapa con el zoom adecuado de acuerdo a lo buscado
+    map.fitBounds(results[0].geometry.viewport); // fitBounds acercará el mapa con el zoom adecuado de acuerdo al lugar buscado
 
   } else {
     alert("Geocoding error. " + status); // en vez de un mensaje puedo mostrar el error en div del mapa

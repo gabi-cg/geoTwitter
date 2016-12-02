@@ -1,6 +1,6 @@
 <?php
 
-  require_once('TwitterAPIExchange.php');
+  require_once('TwitterAPIExchange.php'); // usamos esta clase para enviar los tokens de acceso a Twitter y poder hacer uso de su API
 
   class MapModel {
 
@@ -19,16 +19,17 @@
     }
 
     function getInfoTwitter($lat, $lng) {
-      $url = 'https://api.twitter.com/1.1/search/tweets.json';
-      $getfield = '?q=&geocode=' . $lat . ',' . $lng . ',50km&count=100';
+      $url = 'https://api.twitter.com/1.1/search/tweets.json'; // el recurso permite obtener como máx 100 resultados
+      $getfield = '?q=&geocode=' . $lat . ',' . $lng . ',50km&count=100'; // establecemos un radio de 50 km a la redonda del lugar para obtener los tweets
       $requestMethod = 'GET';
-      $twitter = new TwitterAPIExchange($this->infoKeys);
+      $twitter = new TwitterAPIExchange($this->infoKeys); // aquí se hace uso de la clase para realizar la autenticación
       $result = $twitter->setGetfield($getfield)
               ->buildOauth($url, $requestMethod)
               ->performRequest();
       return json_decode($result,true);
     }
 
+    // se obtienen los hashtags dado el array "statuses" obtenido de la API de Twitter del recurso search/tweets
     function getHashtags($data) {
       $result = array();
       for($i=0; $i<count($data); $i++) {

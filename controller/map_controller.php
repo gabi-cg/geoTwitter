@@ -20,8 +20,8 @@
     }
 
     public function getInfoTwitter() {
-      $resultado = $this->model->getInfoTwitter($_REQUEST['lat'],$_REQUEST['lng']);
-      $trendings = $this->model->getHashtags($resultado["statuses"]); //$resultado["statuses"] array de 100 elem devuelto por APITwitter
+      $resultado = $this->model->getInfoTwitter($_REQUEST['lat'],$_REQUEST['lng']); // se obtienen los tweets dada una latitud y longitud
+      $trendings = $this->model->getHashtags($resultado["statuses"]); //$resultado["statuses"] array de 100 elem devuelto por recurso de API Twitter
       $this->view->loadHash($trendings);
     }
 
