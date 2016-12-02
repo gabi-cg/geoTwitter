@@ -1,3 +1,8 @@
+
+    <div class="jumbotron">
+      <h1>Geo Twitter</h1>
+    </div>
+
     <div class="container">
 
       <div class="row presentation">
@@ -7,7 +12,7 @@
       <div class="row" id="nosotros">
         <div class="col-sm-8 col-sm-offset-2">
           <p>Somos una web de servicios de estadística social sobre las cantidades de tweets realizados en un lugar dado del mundo.</p>
-          <p>Haciendo uso de los servicios de información (API's) de <a href="https://maps.google.com" target="_blank">Google Maps</a> y <a href="https://twitter.com/" target="_blank">Twitter</a> podemos mostrar la información brindada.</p>
+          <p>Haciendo uso de los servicios de información (API's) de <a href="https://maps.google.com" target="_blank">Google Maps</a> y <a href="https://twitter.com/" target="_blank">Twitter</a> podemos mostrar la información actual.</p>
         </div>
       </div>
 
@@ -42,7 +47,7 @@
               Preguntas Frecuentes (FAQ)</a>
             </h4>
           </div>
-          <div id="collapse1" class="panel-collapse collapse">
+          <div id="collapse1" class="panel-collapse collapse in">
             <div class="panel-body">
               <h5>¿Qué es esto?</h5>
               <p>Somos una web de servicios de estadística social sobre las cantidades de tweets realizados en un lugar dado del mundo.</p>
